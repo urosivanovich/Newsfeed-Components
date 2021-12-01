@@ -120,13 +120,18 @@ function articleMaker(obj){
   articleDiv.classList.add('article');
   
   const titleH2 = document.createElement('h2');
+  titleH2.textContent = obj.title;
   const dateP = document.createElement('p');
   dateP.classList.add('date');
+  dateP.textContent = obj.date;
 
   const firstPara = document.createElement('p');
+  firstPara.textContent = obj.firstParagraph;
   const secondPara = document.createElement('p');
+  secondPara.textContent = obj.secondParagraph;
   const thirdPara = document.createElement('p');
-
+  thirdPara.textContent = obj.thirdParagraph;
+  
   const spanButton = document.createElement('span');
   spanButton.textContent = '+';
   spanButton.classList.add('expandButton');
@@ -144,3 +149,15 @@ function articleMaker(obj){
   
   return articleDiv;
 }
+
+const articles = document.querySelector('.articles')
+
+data.forEach(e =>{
+  const articleDiv = articleMaker(e);
+  articles.appendChild(articleDiv);
+})
+
+
+
+
+
