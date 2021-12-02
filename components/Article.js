@@ -150,14 +150,29 @@ function articleMaker(obj){
   return articleDiv;
 }
 
+
+function TheBrandNewArticle({obj}){
+  this.title = obj.title;
+  this.date=obj.date;
+  this.firstParagraph=obj.firstParagraph;
+  this.secondParagraph=obj.secondParagraph;
+  this.thirdParagraph=obj.thirdParagraph;
+}
+
+const newArticle = {
+  title: 'Walk on the Wild Side',
+  date: 'New York City, 1972.',
+  firstParagraph: 'holly came from Miami, hitch hiked her way across america plucked her eyebrows on the way shave her legs and then he was a she she says hey babe take a wallk on the wild side said hey honey take a walk on the wild side',
+  secondParagraph: 'candy came from out on the island in the back room she was everybodys darllink but she never lost her head even when she was giving head she says hey babe take a walk on the wild side said hey babe take a walk on the wild side',
+  thirdParagraph: 'and the girls Doo do doo do doo do do dooDoo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo',
+};
+
+data.push(newArticle);
+
 const articles = document.querySelector('.articles')
 
 data.forEach(e =>{
   const articleDiv = articleMaker(e);
   articles.appendChild(articleDiv);
 })
-
-
-
-
 
