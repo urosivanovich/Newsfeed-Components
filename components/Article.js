@@ -114,3 +114,68 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(obj){
+  const articleDiv = document.createElement('div');
+  articleDiv.classList.add('article');
+  
+  const titleH2 = document.createElement('h2');
+  titleH2.textContent = obj.title;
+  const dateP = document.createElement('p');
+  dateP.classList.add('date');
+  dateP.textContent = obj.date;
+
+  const firstPara = document.createElement('p');
+  firstPara.textContent = obj.firstParagraph;
+  const secondPara = document.createElement('p');
+  secondPara.textContent = obj.secondParagraph;
+  const thirdPara = document.createElement('p');
+  thirdPara.textContent = obj.thirdParagraph;
+  
+  const spanButton = document.createElement('span');
+  spanButton.textContent = '+';
+  spanButton.classList.add('expandButton');
+
+  articleDiv.appendChild(titleH2);
+  articleDiv.appendChild(dateP);
+  articleDiv.appendChild(firstPara);
+  articleDiv.appendChild(secondPara);
+  articleDiv.appendChild(thirdPara);
+  articleDiv.appendChild(spanButton);
+
+  spanButton.addEventListener('click', event => {
+    articleDiv.classList.toggle('article-open')
+      spanButton.textContent === '-' ? spanButton.textContent = '+' : spanButton.textContent = '-';
+  })
+  
+  return articleDiv;
+}
+
+
+class TheBrandNewArticle{
+  constructor(obj){
+    this.title=obj.title;
+    this.date=obj.date;
+    this.firstParagraph=obj.firstParagraph;
+    this.secondParagraph=obj.secondParagraph;
+    this.thirdParagraph=obj.thirdParagraph;
+  }
+}
+
+const newArticle = new TheBrandNewArticle({
+  title: 'Walk on the Wild Side',
+  date: 'New York City, 1972.',
+  firstParagraph: 'holly came from Miami, hitch hiked her way across america plucked her eyebrows on the way shave her legs and then he was a she she says hey babe take a wallk on the wild side said hey honey take a walk on the wild side',
+  secondParagraph: 'candy came from out on the island in the back room she was everybodys darllink but she never lost her head even when she was giving head she says hey babe take a walk on the wild side said hey babe take a walk on the wild side',
+  thirdParagraph: 'and the girls Doo do doo do doo do do dooDoo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo Doo do doo do doo do do doo',
+});
+
+data.push(newArticle);
+
+const articles = document.querySelector('.articles')
+
+data.forEach(e =>{
+  const articleDiv = articleMaker(e);
+  articles.appendChild(articleDiv);
+})
+
