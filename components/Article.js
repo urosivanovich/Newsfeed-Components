@@ -145,18 +145,21 @@ function articleMaker(obj){
 
   spanButton.addEventListener('click', event => {
     articleDiv.classList.toggle('article-open')
+      spanButton.textContent === '-' ? spanButton.textContent = '+' : spanButton.textContent = '-';
   })
   
   return articleDiv;
 }
 
 
-function TheBrandNewArticle({obj}){
-  this.title = obj.title;
-  this.date=obj.date;
-  this.firstParagraph=obj.firstParagraph;
-  this.secondParagraph=obj.secondParagraph;
-  this.thirdParagraph=obj.thirdParagraph;
+class TheBrandNewArticle{
+  constructor(obj){
+    this.title=obj.title;
+    this.date=obj.date;
+    this.firstParagraph=obj.firstParagraph;
+    this.secondParagraph=obj.secondParagraph;
+    this.thirdParagraph=obj.thirdParagraph;
+  }
 }
 
 const newArticle = new TheBrandNewArticle({
